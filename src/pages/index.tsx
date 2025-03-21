@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
-type VoteOptions = "rojo" | "azul";
+type VoteOptions = "rojo" | "negro";
 
 export default function Home() {
   const [votes, setVotes] = useState<Record<VoteOptions, number>>({
     rojo: 0,
-    azul: 0,
+    negro: 0,
   });
   const [hasVoted, setHasVoted] = useState(false);
 
@@ -38,8 +38,8 @@ export default function Home() {
         <p className="mt-4 text-lg font-semibold">¿Cuál es tu color favorito?</p>
 
         <div className="mt-6 flex flex-col gap-4">
-          {(["rojo", "azul"] as VoteOptions[]).map((color) => {
-            const totalVotes = votes.rojo + votes.azul;
+          {(["rojo", "negro"] as VoteOptions[]).map((color) => {
+            const totalVotes = votes.rojo + votes.negro;
             const percentage = totalVotes > 0 ? (votes[color] / totalVotes) * 100 : 0;
 
             return (
